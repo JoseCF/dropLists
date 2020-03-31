@@ -1,0 +1,37 @@
+<div cdkDropListGroup >
+<div class="example-container" >
+  <h2>SourceFields</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="sourceFields"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of sourceFields" cdkDrag>{{item}}</div>
+  </div>
+
+</div>
+
+<div class="example-container">
+  <h2>Ontology</h2>
+  <div class="rows">
+    <div *ngFor="let item of ontology.fields" class="fila">
+        <div class="example-list2">{{item.name}}<div>
+        <div
+        cdkDropList
+        [cdkDropListData]="item.assignedFields"
+        class="example-list2"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box2" *ngFor="let itemValue of item.assignedFields" cdkDrag>{{itemValue}}</div>
+      </div>
+    </div>  
+  </div>
+
+</div>
+</div>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
